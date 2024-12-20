@@ -6,7 +6,7 @@ from CharmCord.globeHandler import get_globals
 async def addDropdown(args, ctx):
     from CharmCord.tools import check_args_check, check_args, find_bracket_pairs, no_arguments, lets, is_valid
     try:
-        placeHolder, custom_id = args.split(";")
+        placeHolder, custom_id, minimum, maximum = args.split(";")
 
     except:
         raise SyntaxError("$addDropdown needs a placeholder and custom_id")
@@ -42,7 +42,7 @@ async def addDropdown(args, ctx):
         if len(lets) >= 1:
             lets.clear()
 
-    select = discord.ui.Select(placeholder=placeHolder, options=dropdown_options, custom_id=custom_id)
+    select = discord.ui.Select(placeholder=placeHolder, options=dropdown_options, custom_id=custom_id, min_values=minimum, max_values=maximum)
     select.callback = drop_go
 
     if len(views) == 0:

@@ -1,4 +1,3 @@
-import asyncio
 import json
 import discord
 from discord.ext import commands
@@ -226,7 +225,7 @@ class CharmCord:
 def charmclient(
         prefix: str,
         case_insensitive: bool = False,
-        intents: tuple = ("default",),
+        intents: str | list = "Default",
         activity: discord.Activity = None,
         load_command_dir="commands",
 ):
