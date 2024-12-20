@@ -51,6 +51,7 @@ async def addButton(args, ctx):
         views.append(mine)
         data.callback = button_go
         views[0].add_item(data)
+
     else:
         async def button_go(button_interaction):
             funcs = get_globals()[0]

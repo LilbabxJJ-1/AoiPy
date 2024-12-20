@@ -1,6 +1,6 @@
-from CharmCord import CharmClient
+from CharmCord import charmclient
 
-bot = CharmClient(prefix="!", case_insensitive=True, intents=("all",))
+bot = charmclient(prefix="!", case_insensitive=True, intents=("all",))
 
 bot.command(
     name="Hey",
@@ -12,6 +12,7 @@ bot.command(
 
 bot.slash_command(
     name="toast",
+    args={},
     code="""
     $sendMessage[1112301680839643156; I AM TOAST!!]
     $console[Hiya]

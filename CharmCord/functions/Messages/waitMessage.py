@@ -5,7 +5,7 @@ from CharmCord.CharmErrorHandling import CharmCordErrors
 
 async def waitMessage(args, context):
     """
-    Ex. $waitMessage[ChannelID;User;timeout;timeoutErrMsg]
+    Ex. $waitMessage[ChannelID;User;timeout;timeoutErrMsg;return]
     """
     bots = get_globals()[1]
     split = args.split(";")
@@ -15,6 +15,7 @@ async def waitMessage(args, context):
         channel_id = split[0]
         user = split[1]
         timeout = int(split[2])
+        return_data = timeout
 
         def check(msg):
             if int(channel_id) == msg.channel.id:
@@ -22,6 +23,8 @@ async def waitMessage(args, context):
                     return True
                 elif int(user) == msg.author.id:
                     return True
+                else:
+                    return False
 
         error = None
         if len(split[3]) > 1:
@@ -37,7 +40,7 @@ async def waitMessage(args, context):
                 message = await bots.wait_for("message", timeout=timeout, check=check)
                 return message.content
             except asyncio.TimeoutError:
-                await context.channel.send(error)
+                return await context.channel.send(error)
     except ValueError:
         CharmCordErrors(f"args Error in {context.command.name}")
         return

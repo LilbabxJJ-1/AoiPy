@@ -1,4 +1,12 @@
 async def count(code, context):
+    """
+    Use. $count[text or list]
+    Ex. $count[Hi]
+
+    :param code:
+    :param context:
+    :return:
+    """
     if isinstance(code, list):
         try:
             return len(code)

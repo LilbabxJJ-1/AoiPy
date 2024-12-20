@@ -2,7 +2,6 @@ import discord
 import CharmCord.CharmErrorHandling as ErrorHandling
 from CharmCord.globeHandler import get_globals
 
-EH = ErrorHandling.CharmErrorHandling()
 
 
 async def guildTextChannels(id, context):
@@ -18,4 +17,4 @@ async def guildTextChannels(id, context):
                 text.append(channel.name)
         return text
     except ValueError:
-        EH.Errors(2, "None")
+        pass # Fix this

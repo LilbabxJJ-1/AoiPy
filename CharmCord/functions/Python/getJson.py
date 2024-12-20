@@ -1,5 +1,4 @@
 import aiohttp
-
 from CharmCord.CharmErrorHandling import CharmCordErrors
 
 

@@ -1,4 +1,15 @@
+from CharmCord.CharmErrorHandling import CharmCordErrorHandling
+
+
 async def divide(args, context):
+    """
+    Use. $divide[digit1;digit2]
+    Ex. $divide[10;5]
+
+    :param args:
+    :param context:
+    :return:
+    """
     if ";" in args:
         values = args.split(";")
         try:
@@ -9,7 +20,9 @@ async def divide(args, context):
                 new = new.replace(".0", "")
             return new
         except ValueError:
-            raise SyntaxError("$divide parameters can only can numbers")
+            CharmCordErrorHandling("$divide parameters can only be numbers",
+                                   f"{args}",
+                                   context.command.name).command_error()
         except IndexError:
             raise SyntaxError("$divide requires 2 parameters")
     else:

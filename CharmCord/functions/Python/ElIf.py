@@ -1,4 +1,13 @@
 async def ElIf(args, context):
+    """
+    Use. $elif[expression]
+
+
+
+    :param args:
+    :param context:
+    :return:
+    """
     choices = ["==", ">=", "<=", "!=", "<", ">"]
     operator_mapping = {
         "==": lambda x, y: x == y,

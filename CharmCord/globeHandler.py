@@ -1,8 +1,8 @@
-
 TotalFuncs = None
 bots = None
 all_vars = None
 lets = {}
+
 
 def update_globals(key: str, value):
     global TotalFuncs
